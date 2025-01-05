@@ -1,0 +1,21 @@
+--Sai(D) - Name followed by profession in Paranthesis()
+SELECT CONCAT(Name, '(', SUBSTRING(Occupation, 1, 1), ')') AS Result
+FROM OCCUPATIONS
+ORDER BY Name;
+
+--counting number of occupations and displaying as sentence.
+SELECT CONCAT('There are a total of ', COUNT(*), ' ', LOWER(Occupation), 's.') AS Result
+FROM OCCUPATIONS
+GROUP BY Occupation
+ORDER BY COUNT(*) ASC, Occupation ASC;
+
+--DB2 same thing
+
+SELECT Name || '(' || SUBSTR(Occupation, 1, 1) || ')' AS Result
+FROM OCCUPATIONS
+ORDER BY Name;
+
+SELECT 'There are a total of ' || COUNT(*) || ' ' || LOWER(Occupation) || 's.' AS Result
+FROM OCCUPATIONS
+GROUP BY Occupation
+ORDER BY COUNT(*) ASC, Occupation ASC;
